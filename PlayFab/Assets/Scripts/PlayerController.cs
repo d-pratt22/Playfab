@@ -23,12 +23,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!isPlaying)
+            return;
+
         float x = Input.GetAxis("Horizontal") * speed;
         float z = Input.GetAxis("Vertical") * speed;
         rig.velocity = new Vector3(x, rig.velocity.y, z);
+
         curTimeText.text = (Time.time - startTime).ToString("F2");
-        if (!isPlaying)
-            return;
+       
 
     }
 
